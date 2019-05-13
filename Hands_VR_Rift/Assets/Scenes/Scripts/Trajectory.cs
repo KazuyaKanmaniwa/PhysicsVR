@@ -8,7 +8,8 @@ public class Trajectory : MonoBehaviour {
     public List<Vector3[]> trajectory_list = new List<Vector3[]>();
 	[SerializeField]
 	GameObject ball;
-	InfoAnchor[] info_anchor; 
+	InfoAnchor[] info_anchor;
+    private Quaternion TProtation_;
 
     TrajectoryController trajectory_controller;
 
@@ -21,6 +22,18 @@ public class Trajectory : MonoBehaviour {
 			}
 		}
 	}
+
+    public Quaternion rotation
+    {
+        get
+        {
+            return TProtation_;
+        }
+        set
+        {
+            TProtation_ = value;
+        }
+    }
 
     public void AddTrajectoryList(Vector3 position,Vector3 velocity)
     {
@@ -46,7 +59,7 @@ public class Trajectory : MonoBehaviour {
 	void Update () {
 		if (OVRInput.GetDown(OVRInput.RawButton.X))
 		{
-            ResetTrajectory();
+            AlineTrajectory();
 		}
 	}
 
@@ -66,4 +79,16 @@ public class Trajectory : MonoBehaviour {
         }
 		
 	}
+
+    public void AlineTrajectory()
+    {
+        /*var firstBall = trajectory_list[0];
+
+        this.transform.Translate(firstBall[0].x, 0, firstBall[0].z, Space.World);
+        *///移動させる必要があるのかまだわからない
+        transform.rotation = Quaternion.identity;
+        //Debug.Log(transform.rotation.y);
+        transform.rotation = rotation;
+
+    }
 }

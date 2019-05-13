@@ -471,8 +471,12 @@ public class VrgGrabber : MonoBehaviour
 
 			if (have_ball && origin_ball != null) {
 				GameObject.Find("Ball").GetComponent<Ball>().Start_trajectory();
-				GameObject.Find ("TrajectoryControll").GetComponent<Grit> ().rotation = Quaternion.Euler (0, -1*Mathf.Atan2(grabInfo_.velocity.average.z,grabInfo_.velocity.average.x)*Mathf.Rad2Deg+180, 0);
-			}
+                var gritRotation= Quaternion.Euler (0, -1*Mathf.Atan2(grabInfo_.velocity.average.z,grabInfo_.velocity.average.x)*Mathf.Rad2Deg+180, 0);
+                var ballRotation = Quaternion.Euler(0, Mathf.Atan2(grabInfo_.velocity.average.z, grabInfo_.velocity.average.x) * Mathf.Rad2Deg + 180, 0);
+                GameObject.Find("TrajectoryControll").GetComponent<Grit>().rotation = gritRotation;
+                GameObject.Find("TrajectoryParent").GetComponent<Trajectory>().rotation = ballRotation;
+
+            }
         
         grabInfo_ = new GrabInfo();
     }
