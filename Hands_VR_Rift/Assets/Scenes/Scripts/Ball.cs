@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour {
     GameObject trajectory_parent;
 
     private bool start_trajectory = false;
-    private float interval_max = 0.1f;
+    private float interval_max = 0.06f;
     private float interval_time;
     public Vector3 trajectory_position;
     public Rigidbody use_gravity;

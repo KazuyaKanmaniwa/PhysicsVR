@@ -62,7 +62,7 @@ public class Grit : MonoBehaviour {
 			DeleteGrit ();
 		}
 		
-        if (OVRInput.GetDown(OVRInput.RawButton.A))
+        /*if (OVRInput.GetDown(OVRInput.RawButton.A))
         {
             if (find_grit)
             {
@@ -72,7 +72,7 @@ public class Grit : MonoBehaviour {
             {
                 CreateGrit();
             }
-        }
+        }*/
 	}
 
     public void CreateGrit()
